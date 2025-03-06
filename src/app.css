@@ -3,18 +3,71 @@
 @import 'tailwindcss/utilities';
 
 :root {
+  /* Core colors */
   --primary: hsl(209, 64%, 32%);
+  --primary-light: hsl(209, 64%, 42%);
   --secondary: hsl(205, 78%, 18%);
+  --secondary-light: hsl(205, 78%, 28%);
+
+  /* Background/surface colors */
   --background: hsl(210, 40%, 98%);
-  --foreground:	hsl(229, 84%, 5%);
+  --surface: hsl(210, 40%, 95%);
+  --surface-elevated: hsl(210, 40%, 92%);
+  --surface-light: hsl(210, 40%, 89%);
+
+  /* Text colors */
+  --foreground: hsl(229, 84%, 5%);
+  --foreground-muted: hsl(229, 40%, 30%);
+  --foreground-subtle: hsl(229, 30%, 45%);
+  --foreground-light: hsl(229, 20%, 60%);
+  --foreground-lighter: hsl(229, 15%, 75%);
+  --foreground-faint: hsl(229, 10%, 85%);
+
+  /* Semantic colors */
+  --success: hsl(145, 65%, 40%);
+  --error: hsl(0, 75%, 50%);
+  --warning: hsl(40, 90%, 50%);
+  --info: hsl(200, 80%, 50%);
+
+  /* Border/divider colors */
+  --border-color: hsl(210, 20%, 85%);
+
+  /* Additional UI elements */
+  --focus-ring: hsl(209, 80%, 60%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: hsl(205, 78%, 18%);
-    --secondary: hsl(209, 64%, 32%);
-    --background:	hsl(229, 84%, 5%);
+    /* Core colors - slightly lighter for dark mode */
+    --primary: hsl(209, 70%, 45%);
+    --primary-light: hsl(209, 70%, 55%);
+    --secondary: hsl(205, 80%, 30%);
+    --secondary-light: hsl(205, 80%, 40%);
+
+    /* Background/surface colors */
+    --background: hsl(229, 84%, 5%);
+    --surface: hsl(229, 70%, 10%);
+    --surface-elevated: hsl(229, 60%, 15%);
+    --surface-light: hsl(229, 60%, 20%);
+    /* Text colors */
     --foreground: hsl(210, 40%, 98%);
+    --foreground-muted: hsl(210, 30%, 70%);
+    --foreground-subtle: hsl(210, 25%, 60%);
+    --foreground-light: hsl(210, 20%, 50%);
+    --foreground-lighter: hsl(210, 15%, 40%);
+    --foreground-faint: hsl(210, 10%, 30%);
+
+    /* Semantic colors - brightened for dark mode */
+    --success: hsl(145, 70%, 50%);
+    --error: hsl(0, 85%, 60%);
+    --warning: hsl(40, 100%, 60%);
+    --info: hsl(200, 90%, 60%);
+
+    /* Border/divider colors */
+    --border-color: hsl(229, 30%, 25%);
+
+    /* Additional UI elements */
+    --focus-ring: hsl(209, 90%, 65%);
   }
 }
 
@@ -29,8 +82,35 @@ body {
 }
 
 .btn {
-  @apply rounded-lg bg-primary px-3.5 py-2.5 text-sm text-slate-50 font-semibold shadow-sm;
-  @apply  hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary;
+  @apply rounded-lg bg-primary px-3.5 py-2.5 text-sm text-foreground font-semibold shadow-sm;
+  @apply hover:bg-primaryLight;
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight;
+}
+
+.btn-secondary {
+  @apply rounded-lg bg-secondary px-3.5 py-2.5 text-sm text-foreground font-semibold shadow-sm;
+  @apply hover:bg-secondaryLight;
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondaryLight;
+}
+
+.btn-outline {
+  @apply rounded-lg border-2 border-primary px-3.5 py-2.5 text-sm text-primary font-semibold;
+  @apply hover:bg-primary hover:border-primaryLight hover:text-foreground;
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+}
+
+.btn-outline-secondary {
+  @apply rounded-lg border-2 border-secondary px-3.5 py-2.5 text-sm text-secondary font-semibold;
+  @apply hover:bg-secondary hover:text-foreground;
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary;
+}
+
+.btn-small {
+  @apply rounded px-2.5 py-1.5 text-xs font-medium;
+}
+
+.btn-large {
+  @apply rounded-xl px-5 py-3 text-base font-bold;
 }
 
 .nav {

@@ -36,8 +36,8 @@
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <a href="/" class="nav-link animated">Home</a>
-      <a href="#work" class="nav-link animated">My Work</a>
       <a href="#skills" class="nav-link animated">My Skills</a>
+      <a href="#projects" class="nav-link animated">My Projects</a>
       <a href="#about" class="nav-link animated">About Me</a>
       <a href="#contact" class="nav-link animated">Contact Me</a>
     </div>
