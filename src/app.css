@@ -49,6 +49,7 @@
     --surface: hsl(229, 70%, 10%);
     --surface-elevated: hsl(229, 60%, 15%);
     --surface-light: hsl(229, 60%, 20%);
+
     /* Text colors */
     --foreground: hsl(210, 40%, 98%);
     --foreground-muted: hsl(210, 30%, 70%);
@@ -77,14 +78,35 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Section Style */
+
 .section-container {
-  @apply py-2 px-5;
+  @apply py-2 px-5 max-w-6xl mx-auto;
+
+  .section-header {
+    @apply text-center mb-12;
+    @apply md:mb-16;
+
+    h2 {
+      @apply text-3xl font-bold;
+      @apply md:text-4xl;
+    }
+  }
+
+  .section-grid {
+    @apply grid grid-cols-1 gap-8;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-3;
+  }
 }
 
+
+/* Button Style */
+
 .btn {
-  @apply rounded-lg bg-primary px-3.5 py-2.5 text-sm text-foreground font-semibold shadow-sm;
+  @apply inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm text-foreground font-semibold shadow-sm;
   @apply hover:bg-primaryLight;
-  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight;
+  @apply focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primaryLight;
 }
 
 .btn-secondary {
@@ -129,6 +151,27 @@ body {
   @apply transition-all ease-out duration-200;
 }
 
+.border-top {
+  @apply border-t-4 border-surfaceElevated;
+  @apply hover:border-surfaceLight;
+}
+
+.border-all {
+  @apply border-4 border-surfaceElevated;
+  @apply hover:border-surfaceLight;
+}
+
 .card {
-  @apply bg-slate-800 p-6 rounded-lg shadow-lg text-center;
+  @apply bg-surface rounded-xl shadow-md overflow-hidden;
+  @apply hover:shadow-xl hover:bg-surfaceElevated;
+
+  img {
+    @apply w-full h-48 object-cover;
+  }
+
+  .header,
+  .body,
+  .footer {
+    @apply py-4 px-8;
+  }
 }

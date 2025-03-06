@@ -9,7 +9,7 @@
         >
           <!-- Replace with your image -->
           <img
-            src="https://via.placeholder.com/400"
+            src="https://placehold.co/400@2x.png"
             alt="Your Name"
             class="w-full h-full object-cover"
           />
@@ -18,20 +18,24 @@
 
       <div class="md:w-2/3">
         <p class="text-lg mb-4">
-          Hello! I'm [Your Name], a passionate web developer with a focus on
-          creating clean, user-friendly websites and applications. With [X]
-          years of experience in the field, I've developed a keen eye for detail
-          and a love for writing efficient code.
+          Hello! I'm <strong>Fathi Abdelmalek</strong>, an innovative
+          entrepreneur and passionate software engineer with a master's degree
+          in computer science and information systems. With more than 5 years of
+          experience in Python, I've developed a keen eye for detail and a love
+          for writing efficient code.
         </p>
         <p class="text-lg mb-4">
-          My journey in web development began [brief story about how you
-          started]. Since then, I've worked on a variety of projects ranging
-          from [types of projects] to [other types].
+          Currently, I'm a PhD student in the artificial intelligence and its
+          applications field, exploring machine learning and deep learning
+          technologies. My academic background combined with practical
+          experience allows me to bridge theoretical concepts with real-world
+          solutions.
         </p>
         <p class="text-lg">
-          When I'm not coding, you can find me [your hobbies or interests]. I
-          believe that [something you believe about web development or your work
-          philosophy].
+          When I'm not coding, you can find me learning about history and
+          playing mind games like chess and sudoku. I believe that continuous
+          learning and intellectual challenges are essential for growth both
+          professionally and personally.
         </p>
       </div>
     </div>
