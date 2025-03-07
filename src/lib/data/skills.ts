@@ -34,7 +34,7 @@ export const skillCategories: SkillCategory[] = [
     id: 'databases',
     name: "Database Systems",
     icon: "🗃️",
-    skills: ["PostgreSQL", "MySQL", "MariaDB", "SQLite", "MongoDB", "Redis"]
+    skills: ["PostgreSQL", "MySQL/MariaDB", "SQLite", "MongoDB", "Redis"]
   },
   {
     id: 'devops',
@@ -52,7 +52,7 @@ export const skillCategories: SkillCategory[] = [
     id: 'others',
     name: "Tools and Productivity",
     icon: "🛠️",
-    skills: ["Figma", "Postman", "Trello", "Latex"]
+    skills: ["Postman", "Figma", "LaTeX", "Notion", "Trello"]
   },
   {
     id: 'os',

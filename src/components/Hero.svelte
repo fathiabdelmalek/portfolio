@@ -14,7 +14,6 @@
     <p class="text-xl md:text-2xl mb-8">
       Innovative Entrepreneur | Software Engineer | PhD Student
     </p>
-    <a href="#work" class="btn-outline-secondary animated">View My Work</a>
-    <a href="#contact" class="btn-secondary animated ml-4">Contact Me</a>
+    <a href="#contact" class="btn animated ml-4">Hire Me</a>
   </div>
 </section>

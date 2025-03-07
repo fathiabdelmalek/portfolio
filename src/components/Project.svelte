@@ -2,7 +2,7 @@
   export let project;
 </script>
 
-<div class="card border border-surfaceElevated animated">
+<div class="card border-all animated">
   <a href={project.link}>
     <img src="https://placehold.co/400@2x.png" alt={project.title} />
     <div class="header">
@@ -10,8 +10,8 @@
     </div>
     <div class="body">
       <p class="text-foregroundSubtle mb-4">{project.description}</p>
-      </div>
-      <div class="footer">
+    </div>
+    <div class="footer">
       <div class="flex flex-wrap gap-2">
         {#each project.tags as tag}
           <span
