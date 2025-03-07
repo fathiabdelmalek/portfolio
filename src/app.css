@@ -270,13 +270,11 @@ body {
 }
 
 .hex-icon {
-  margin-bottom: 10px;
-  color: var(--primary);
+  @apply mb-2.5 text-primary;
 }
 
 .hex-title {
-  font-weight: bold;
-  color: var(--primary);
+  @apply font-bold text-primary;
 }
 
 .hex-title-expanded {
@@ -321,8 +319,8 @@ body {
   grid-column: span 2;
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--primary);
-  border-bottom: 1px solid var(--primary-light);
+  color: var(--secondary);
+  border-bottom: 1px solid var(--secondary-light);
   padding-bottom: 8px;
   margin-bottom: 5px;
 }

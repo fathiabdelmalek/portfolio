@@ -46,7 +46,7 @@ export const skillCategories: SkillCategory[] = [
     id: 'ai',
     name: "AI & Data Science",
     icon: "🤖",
-    skills: ["Numpy", "Pandas", "Matplotlib", "Scikit-learn", "TensorFlow", "Keras"]
+    skills: ["Keras", "TensorFlow", "Scikit-learn", "Numpy", "Pandas", "Matplotlib"]
   },
   {
     id: 'others',
@@ -64,6 +64,6 @@ export const skillCategories: SkillCategory[] = [
     id: 'editors',
     name: "Development Environments",
     icon: "📝",
-    skills: ["PyCharm", "VS Code", "Cursor", "Windsurf", "Android Studio", "Vim"]
+    skills: ["PyCharm", "VS Code", "Cursor", "Android Studio", "Vim"]
   },
 ];
