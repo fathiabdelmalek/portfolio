@@ -12,7 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'project-1',
-    title: 'E-commerce Website',
+    title: 'Elconferences',
     description: 'A fully functional online store built with modern web technologies.',
     tags: ['React', 'Node.js', 'MongoDB'],
     image: '/images/projects/ecommerce.jpg',

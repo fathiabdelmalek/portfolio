@@ -1,3 +1,7 @@
+<script>
+  import faceImage from "$lib/assets/face.png";
+</script>
+
 <section id="about" class="min-h-screen section-container">
   <div class="max-w-4xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">About Me</h2>
@@ -9,8 +13,8 @@
         >
           <!-- Replace with your image -->
           <img
-            src="https://scontent.fblj1-2.fna.fbcdn.net/v/t39.30808-6/480525251_966358618786983_8700536338382721110_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFMup3dKCwLGJpPeyfapDf1WApQItff4qdYClAi19_ip1udRJ-QNsQhpvGLboAkBo73JvsGyoDAfN4mpg33hjbu&_nc_ohc=1KN8bmffS50Q7kNvgEjPJfO&_nc_oc=AdiyTFDG6KMfkd_ttgrmaqGTWb7N5yrDZwhfSVBSTm-h-9kvI__mvLSiPgMlAHg668A&_nc_zt=23&_nc_ht=scontent.fblj1-2.fna&_nc_gid=AQG7Eh7HrkTHXzi3im633at&oh=00_AYGYu0-HvT4DUr0hz6iMwjtjtLTLtFe4zOPTwkKBAVgoAQ&oe=67D0C2BC"
-            alt="Your Name"
+            src={faceImage}
+            alt="Fathi Abdelmalek"
             class="w-full h-full object-cover"
           />
         </div>
