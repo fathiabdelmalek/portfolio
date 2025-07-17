@@ -33,12 +33,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_TARGET }}
           local-dir: ./build/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
-            **/.vscode/**
-            **/.gitignore
-            **/README.md
-          dry-run: false
