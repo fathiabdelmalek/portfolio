@@ -4,7 +4,6 @@
   import Skills from "../components/Skills.svelte";
   import About from "../components/About.svelte";
   import Contact from "../components/Contact.svelte";
-  import Footer from "../components/Footer.svelte";
 </script>
 
 <main>
@@ -13,5 +12,4 @@
   <Skills />
   <About />
   <Contact />
-  <Footer />
 </main>

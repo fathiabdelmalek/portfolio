@@ -3,11 +3,29 @@
   import { slide } from "svelte/transition";
 
   let isMenuOpen = $state(false);
-
+  let showBanner = $state(true);
   const openMenu = () => (isMenuOpen = true);
   const closeMenu = () => (isMenuOpen = false);
 </script>
 
+{#if showBanner}
+  <div
+    class="w-full bg-yellow-300 text-yellow-900 text-center text-xs py-1 font-semibold tracking-wide relative flex items-center justify-center"
+  >
+    <span class="mx-auto">
+      🚧 This website is still under development. Some features may not work as
+      expected.
+    </span>
+    <button
+      class="absolute right-2 top-1/2 -translate-y-1/2 text-yellow-900 hover:text-yellow-700 text-lg px-2 focus:outline-none"
+      aria-label="Close banner"
+      onclick={() => (showBanner = false)}
+      tabindex="0"
+    >
+      &times;
+    </button>
+  </div>
+{/if}
 <header class="section-container">
   <nav class="nav" aria-label="Global">
     <div class="flex lg:hidden">
