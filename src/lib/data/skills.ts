@@ -22,37 +22,37 @@ export const skillCategories: SkillCategory[] = [
     id: 'backend',
     name: "Backend Technologies",
     icon: "⚙️",
-    skills: ["Django", "FastAPI", "Flask", "Node.js"]
+    skills: ["Django", "FastAPI", "Flask", "Node.js", "Spring Boot"]
   },
   {
     id: 'frameworks',
     name: "Application Frameworks",
     icon: "📱",
-    skills: ["JavaFX", "Flutter", "Qt", "Arduino"]
+    skills: ["JavaFX", "Flutter", "Spring", "Arduino"]
   },
   {
     id: 'databases',
     name: "Database Systems",
     icon: "🗃️",
-    skills: ["PostgreSQL", "MySQL/MariaDB", "SQLite", "MongoDB", "Redis"]
+    skills: ["SQL Databases", "MongoDB", "Redis"]
   },
   {
     id: 'devops',
     name: "DevOps & Cloud",
     icon: "☁️",
-    skills: ["Git - GitHub", "Docker", "AWS"]
+    skills: ["Git - GitHub - GitHub Actions", "Docker", "AWS"]
   },
   {
     id: 'ai',
     name: "AI & Data Science",
     icon: "🤖",
-    skills: ["Keras", "TensorFlow", "Scikit-learn", "Numpy", "Pandas", "Matplotlib"]
+    skills: ["Pytorch", "Scikit-learn", "Keras - Tensorflow", "Pandas", "Numpy", "Matplotlib", "Seaborn"]
   },
   {
     id: 'others',
     name: "Tools and Productivity",
     icon: "🛠️",
-    skills: ["Postman", "Figma", "LaTeX", "Notion", "Trello"]
+    skills: ["Postman", "Figma", "LaTeX", "Notion", "Trello", "n8n"]
   },
   {
     id: 'os',
@@ -64,6 +64,6 @@ export const skillCategories: SkillCategory[] = [
     id: 'editors',
     name: "Development Environments",
     icon: "📝",
-    skills: ["PyCharm", "VS Code", "Cursor", "Android Studio", "Vim"]
+    skills: ["PyCharm", "VS Code", "Cursor", "Android Studio", "IntelliJ IDEA"]
   },
 ];
