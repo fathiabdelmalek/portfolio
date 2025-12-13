@@ -3,7 +3,6 @@
 </script>
 
 <section id="hero" class="min-h-screen flex items-center justify-center section-container">
-    <h1>Updated</h1>
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 		<div class="text-center">
 			<h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
