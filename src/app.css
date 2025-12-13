@@ -116,11 +116,13 @@ body {
   @apply flex items-center justify-center p-6 lg:px-8;
 
   .nav-link {
-    @apply text-lg/6 font-semibold hover:text-xl/6 hover:font-bold;
+    @apply text-lg/6 font-semibold;
+    @apply hover:text-xl/6 hover:font-bold hover:text-primary;
   }
 
-  .nav-link-side {
-    @apply -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-secondary;
+  .nav-link-mob {
+    @apply block px-3 py-2 text-gray-300;
+    @apply hover:bg-secondary hover:text-white;
   }
 }
 
