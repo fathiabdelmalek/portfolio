@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { projects } from "$lib/data/projects";
   import Project from "./Project.svelte";
   import { slide } from "svelte/transition";
@@ -17,17 +17,28 @@
 </script>
 
 <section id="projects" class="section-container">
-  <div class="section-header">
-    <h2>My Projects</h2>
+  <!-- Section Header -->
+  <div class="text-center mb-16">
+    <p class="text-sm font-medium text-[var(--text-secondary)] tracking-wide uppercase mb-4">
+      Portfolio
+    </p>
+    <h2 class="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4">
+      Featured Projects
+    </h2>
+    <p class="text-lg text-[var(--text-tertiary)] max-w-2xl mx-auto">
+      A showcase of my recent work in software development, AI, and machine learning
+    </p>
   </div>
-  <div class="section-grid">
+
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
     {#each projects as project, i}
       {#if i < visibleProjects}
         <div
           transition:slide={{
-            duration: 800,
+            duration: 600,
             easing: quintOut,
-            delay: (i % 3) * 100,
+            delay: (i % 6) * 50,
           }}
         >
           <Project {project} />
@@ -35,13 +46,27 @@
       {/if}
     {/each}
   </div>
-  <div class="flex justify-center mt-8 gap-4">
+
+  <!-- Load More/Less Controls -->
+  <div class="flex justify-center gap-4">
     {#if visibleProjects < projects.length}
-      <button class="btn" on:click={loadMore}>Show More</button>
+      <button
+        class="px-6 py-3 text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+        on:click={loadMore}
+      >
+        Load More Projects
+      </button>
     {/if}
     {#if visibleProjects > defaultVisibleCount}
-      <button class="btn-outline" on:click={showLess}>Show Less</button>
+      <button
+        class="px-6 py-3 text-sm font-medium text-[var(--text-primary)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-lg transition-all duration-200"
+        on:click={showLess}
+      >
+        Show Less
+      </button>
     {/if}
   </div>
 </section>
-<div class="section-divider"></div>
+
+<!-- Section Divider -->
+<div class="w-full border-t border-[var(--border-primary)] my-16"></div>

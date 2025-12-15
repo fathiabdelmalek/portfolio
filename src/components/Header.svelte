@@ -1,10 +1,32 @@
 <script lang="ts">
-  import { slide } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
+  import { onMount } from "svelte";
 
   let isMenuOpen = false;
   let showBanner = true;
-  const openMenu = () => (isMenuOpen = true);
-  const closeMenu = () => (isMenuOpen = false);
+  let isDarkMode = true;
+
+  onMount(() => {
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      isDarkMode = false;
+      document.documentElement.classList.add('light-mode');
+    }
+  });
+
+  const toggleTheme = () => {
+    isDarkMode = !isDarkMode;
+    if (isDarkMode) {
+      document.documentElement.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
+  const toggleMenu = () => (isMenuOpen = !isMenuOpen);
 
   const scrollToSection = (e: MouseEvent, sectionId: string) => {
     e.preventDefault();
@@ -15,119 +37,123 @@
     isMenuOpen = false;
   };
 
+  const navLinks = [
+    { label: 'Projects', id: 'projects' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'About', id: 'about' },
+    { label: 'Contact', id: 'contact' },
+  ];
 </script>
 
+<!-- Development Banner -->
 {#if showBanner}
   <div
-    class="w-full bg-yellow-300 text-yellow-900 text-center text-xs py-1 font-semibold tracking-wide relative flex items-center justify-center"
+    transition:slide={{ duration: 200 }}
+    class="w-full bg-[var(--brand-primary)]/10 backdrop-blur-sm border-b border-[var(--border-primary)] text-[var(--text-secondary)] text-center text-xs py-2 font-medium tracking-wide relative flex items-center justify-center"
   >
-    <span class="mx-auto">
-      🚧 This website is still under development. Some features may not work as
-      expected.
+    <span class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 bg-[var(--warning)] rounded-full animate-pulse"></span>
+      Under development — some features may be incomplete
     </span>
     <button
-      class="absolute right-2 top-1/2 -translate-y-1/2 text-yellow-900 hover:text-yellow-700 text-lg px-2 focus:outline-none"
+      class="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-200 p-1 rounded-md hover:bg-[var(--bg-surface)]"
       aria-label="Close banner"
       on:click={() => (showBanner = false)}
-      tabindex="0"
     >
-      &times;
-    </button>
-  </div>
-{/if}
-<header class="section-container">
-  <!-- <nav class="nav" aria-label="Global">
-    <div class="flex md:hidden">
-      <button
-        type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300 hover:text-white animated"
-        onclick={openMenu}
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
-    </div>
-    <div class="hidden md:flex md:gap-x-12">
-      <a href="/" class="nav-a animated">Home</a>
-      <a href="#projects" class="nav-a animated">My Projects</a>
-      <a href="#skills" class="nav-a animated">My Skills</a>
-      <a href="#about" class="nav-a animated">About Me</a>
-      <a href="#contact" class="nav-a animated">Contact Me</a>
-    </div>
-  </nav> -->
-<nav>
-  <div>
-    <div>
-      <div>
-        <a href="/">Im Fathi</a>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#projects" on:click={(e) => scrollToSection(e, 'projects')} class="text-gray-700 hover:text-purple-500 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-            Projects
-          </a>
-        <a href="#skills" on:click={(e) => scrollToSection(e, 'skills')} class="text-gray-700 hover:text-purple-500 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-          Skills
-        </a>
-        <a href="#about" on:click={(e) => scrollToSection(e, 'about')} class="text-gray-700 hover:text-purple-500 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-          About
-        </a>
-        <a href="#contact" on:click={(e) => scrollToSection(e, 'contact')} class="text-gray-700 hover:text-purple-500 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-          Contact
-        </a>
-      </div>
-      <a href="/" class="text-gray-700 hover:text-purple-500 dark:text-gray-300 dark:hover:text-purple-400 transition-colors">
-        Home
-      </a>
-      <a href="/dashboard" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-400 text-white rounded-full hover:from-purple-600 hover:to-blue-500 transition-all duration-300">
-        Dashboard
-      </a>
-    </div>
-  
-    <button class="md:hidden" on:click={() => openMenu()} aria-label="Toggle menu">
-      <svg
-      class="h-6 w-6"
-      fill="none"
-      stroke-linejoin="round"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-      stroke="currentColor">
-        {#if isMenuOpen}
-        <path d="M6 18L18 6M6 6l12 12" />
-        {:else}
-        <path d="M4 6h16M4 12h16M4 18h16" />
-        {/if}
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
+{/if}
 
-  {#if isMenuOpen}
-    <div class="md:hidden" transition:slide={{ duration: 300 }}>
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <!-- <div class="-my-6 divide-y divide-gray-500/10"> -->
-          <!-- <div class="space-y-2 py-6"> -->
-            <a href="/" class="nav-a-mob animated">Home</a>
-            <a href="#projects" on:click={(e) => scrollToSection(e, 'projects')} class="nav-a-mob animated">My Projects</a>
-            <a href="#skills" on:click={(e) => scrollToSection(e, 'skills')} class="nav-a-mob animated">My Skills</a>
-            <a href="#about" on:click={(e) => scrollToSection(e, 'about')} class="nav-a-mob animated">About Me</a>
-            <a href="#contact" on:click={(e) => scrollToSection(e, 'contact')} class="nav-a-mob animated">Contact Me</a>
-          </div>
-        <!-- </div> -->
-      <!-- </div> -->
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-primary)]/50">
+  <nav class="max-w-6xl mx-auto px-5 py-4">
+    <div class="flex items-center justify-center md:justify-between">
+      <!-- Logo (hidden on mobile when menu closed, always visible on desktop) -->
+      <a 
+        href="/" 
+        class="hidden md:block text-xl font-semibold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors duration-200 tracking-tight"
+      >
+        Fathi<span class="text-[var(--brand-primary)]">.</span>
+      </a>
+
+      <!-- Desktop Navigation (centered) -->
+      <div class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+        {#each navLinks as link}
+          <a
+            href="#{link.id}"
+            on:click={(e) => scrollToSection(e, link.id)}
+            class="px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
+          >
+            {link.label}
+          </a>
+        {/each}
+      </div>
+
+      <!-- Theme Toggle & Spacer -->
+      <div class="hidden md:flex items-center gap-2">
+        <button
+          on:click={toggleTheme}
+          class="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
+          aria-label="Toggle theme"
+        >
+          {#if isDarkMode}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          {:else}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          {/if}
+        </button>
+      </div>
+
+      <!-- Mobile: Logo centered -->
+      <a 
+        href="/" 
+        class="md:hidden text-xl font-semibold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors duration-200 tracking-tight"
+      >
+        fathi<span class="text-[var(--brand-primary)]">.</span>
+      </a>
+
+      <!-- Mobile Menu Button (absolute positioned) -->
+      <button
+        class="md:hidden absolute right-5 p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
+        on:click={toggleMenu}
+        aria-label="Toggle menu"
+        aria-expanded={isMenuOpen}
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {#if isMenuOpen}
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          {:else}
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          {/if}
+        </svg>
+      </button>
     </div>
-  {/if}
-  </div>
+
+    <!-- Mobile Navigation -->
+    {#if isMenuOpen}
+      <div 
+        class="md:hidden mt-4 pb-2"
+        transition:slide={{ duration: 200 }}
+      >
+        <div class="flex flex-col gap-1">
+          {#each navLinks as link}
+            <a
+              href="#{link.id}"
+              on:click={(e) => scrollToSection(e, link.id)}
+              class="px-4 py-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
+            >
+              {link.label}
+            </a>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </nav>
 </header>
