@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { projects } from "$lib/data/projects";
   import Project from "./Project.svelte";
   import { slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+
+  export let projects: any[] = [];
 
   let visibleProjects = 3;
   const defaultVisibleCount = 3;

@@ -1,10 +1,10 @@
 <script>
+  import { toasts } from "../lib/stores/toasts";
+
   let name = "";
   let email = "";
   let message = "";
   let isSubmitting = false;
-  let submitSuccess = false;
-  let submitError = "";
 
   const contactMethods = [
     {
@@ -30,22 +30,32 @@
   const handleSubmit = async (e) => {
     e.preventDefault();
     isSubmitting = true;
-    submitSuccess = false;
-    submitError = "";
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
 
       // Success
-      submitSuccess = true;
+      toasts.add('Message sent successfully! I\'ll get back to you soon.', 'success', 5000);
       name = "";
       email = "";
       message = "";
-      setTimeout(() => (submitSuccess = false), 5000);
     } catch (error) {
-      submitError =
-        "There was an error sending your message. Please try again.";
+      toasts.add("There was an error sending your message. Please try again.", 'error', 5000);
+      console.error('Submit error:', error);
     } finally {
       isSubmitting = false;
     }
@@ -98,36 +108,6 @@
     <!-- Contact Form -->
     <div class="max-w-2xl mx-auto">
       <div class="bg-bg-surface border border-border-primary rounded-2xl p-8 md:p-12 shadow-lg">
-        {#if submitSuccess}
-          <div
-            class="mb-6 p-4 bg-semantic-success/20 border border-semantic-success rounded-lg"
-            role="alert"
-          >
-            <div class="flex items-center gap-3">
-              <span class="text-lg">✓</span>
-              <div>
-                <p class="font-semibold text-semantic-success">Message Sent!</p>
-                <p class="text-sm text-semantic-success/80">Thank you for your message. I'll get back to you soon.</p>
-              </div>
-            </div>
-          </div>
-        {/if}
-
-        {#if submitError}
-          <div
-            class="mb-6 p-4 bg-semantic-error/20 border border-semantic-error rounded-lg"
-            role="alert"
-          >
-            <div class="flex items-center gap-3">
-              <span class="text-lg">✕</span>
-              <div>
-                <p class="font-semibold text-semantic-error">Error</p>
-                <p class="text-sm text-semantic-error/80">{submitError}</p>
-              </div>
-            </div>
-          </div>
-        {/if}
-
         <form on:submit={handleSubmit} class="space-y-6">
           <!-- Name Field -->
           <div>

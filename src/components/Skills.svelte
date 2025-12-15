@@ -1,6 +1,7 @@
 <script>
-  import { skillCategories } from "$lib/data/skills";
   import SkillCard from "./Skill.svelte";
+
+  export let skillCategories = [];
 </script>
 
 <section id="skills" class="py-20 px-5">

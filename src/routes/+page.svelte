@@ -4,12 +4,14 @@
   import Skills from "../components/Skills.svelte";
   import About from "../components/About.svelte";
   import Contact from "../components/Contact.svelte";
+  
+  export let data;
 </script>
 
 <main>
   <Hero />
-  <Projects />
-  <Skills />
+  <Projects projects={data.projects} />
+  <Skills skillCategories={data.skillCategories} />
   <About />
   <Contact />
 </main>
