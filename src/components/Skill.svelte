@@ -8,7 +8,6 @@
   }
 
   export let category: SkillCategory;
-  export let index: number;
 
   let isExpanded = false;
 
