@@ -1,5 +1,6 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
+  import Icon from "./Icon.svelte";
 
   interface SkillCategory {
     name: string;
@@ -7,9 +8,9 @@
     skills: string[];
   }
 
-  export let category: SkillCategory;
+  let { category }: { category: SkillCategory } = $props();
 
-  let isExpanded = false;
+  let isExpanded = $state(false);
 
   const toggleExpand = () => {
     isExpanded = !isExpanded;
@@ -17,22 +18,24 @@
 </script>
 
 <div
-  class="group relative bg-bg-surface hover:bg-bg-surface-elevated border border-border-primary rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-  on:click={toggleExpand}
-  on:keydown={(e) => e.key === 'Enter' && toggleExpand()}
+  class="group relative bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+  onclick={toggleExpand}
+  onkeydown={(e) => e.key === 'Enter' && toggleExpand()}
   role="button"
   tabindex="0"
 >
   <!-- Header -->
   <div class="flex items-start justify-between mb-4">
     <div class="flex items-center gap-3">
-      <div class="text-3xl">{category.icon}</div>
-      <h3 class="text-lg font-semibold text-text-primary group-hover:text-brand-primary transition-colors duration-200">
+      <div class="w-10 h-10 rounded-lg bg-[var(--bg-surface-muted)] flex items-center justify-center">
+        <Icon name={category.icon} class="w-5 h-5 text-[var(--brand-primary)]" />
+      </div>
+      <h3 class="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors duration-200">
         {category.name}
       </h3>
     </div>
     <svg
-      class="w-5 h-5 text-text-muted transition-transform duration-300 group-hover:text-brand-primary"
+      class="w-5 h-5 text-[var(--text-muted)] transition-transform duration-300 group-hover:text-[var(--brand-primary)]"
       class:rotate-180={isExpanded}
       fill="none"
       stroke="currentColor"
@@ -50,12 +53,12 @@
       class="flex flex-wrap gap-2"
     >
       {#each category.skills.slice(0, 3) as skill}
-        <span class="px-3 py-1 text-xs font-medium text-text-muted bg-bg-surface-muted rounded-full border border-border-primary/50">
+        <span class="px-3 py-1 text-xs font-medium text-[var(--text-muted)] bg-[var(--bg-surface-muted)] rounded-full border border-[var(--border-primary)]/50">
           {skill}
         </span>
       {/each}
       {#if category.skills.length > 3}
-        <span class="px-3 py-1 text-xs font-medium text-text-muted bg-bg-surface-muted rounded-full border border-border-primary/50">
+        <span class="px-3 py-1 text-xs font-medium text-[var(--text-muted)] bg-[var(--bg-surface-muted)] rounded-full border border-[var(--border-primary)]/50">
           +{category.skills.length - 3} more
         </span>
       {/if}
@@ -69,10 +72,10 @@
         {#each category.skills as skill, i}
           <div
             in:fly={{ y: 8, delay: i * 30, duration: 200 }}
-            class="flex items-center gap-2 p-2 rounded-lg hover:bg-bg-surface-muted transition-colors duration-200"
+            class="flex items-center gap-2 p-2 rounded-lg hover:bg-[var(--bg-surface-muted)] transition-colors duration-200"
           >
-            <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
-            <span class="text-sm text-text-secondary">{skill}</span>
+            <div class="w-2 h-2 rounded-full bg-[var(--brand-primary)]"></div>
+            <span class="text-sm text-[var(--text-secondary)]">{skill}</span>
           </div>
         {/each}
       </div>

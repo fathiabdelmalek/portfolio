@@ -22,6 +22,7 @@
   const footerLinks = [
     { label: "Home", href: "#" },
     { label: "Projects", href: "#projects" },
+    { label: "Publications", href: "#publications" },
     { label: "Skills", href: "#skills" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
