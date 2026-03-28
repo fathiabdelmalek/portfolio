@@ -22,11 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch data from database
-        run: npm run db:fetch
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
       - name: Build the Svelte app
         run: npm run build
 

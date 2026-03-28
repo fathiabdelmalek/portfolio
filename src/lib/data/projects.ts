@@ -50,8 +50,8 @@ export const projects: Project[] = [
       "FastAPI",
       "API Development"
     ],
-    "image": "https://api.microlink.io/?url=https://passphera-site.onrender.com/&screenshot=true&meta=false&embed=screenshot.url",
-    "link": "https://passphera-site.onrender.com",
+    "image": "./images/projects/ecommerce.jpg",
+    "link": "https://passphera.imfathi.com",
     "featured": true,
     "date": "Mar 2026"
   }
