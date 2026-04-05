@@ -25,14 +25,11 @@ jobs:
       - name: Build the Svelte app
         run: npm run build
 
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
-
-      - name: Deploy via FTP with cleanup
-        run: |
-          lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" -e "
-          cd public_html
-          rm -rf _app/*
-          mirror -R ./build/ .
-          bye
-          "
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/
+          server-dir: /public_html/
