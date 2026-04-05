@@ -26,10 +26,24 @@ jobs:
         run: npm run build
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build/
-          server-dir: public_html/
+        run: |
+          FTP_HOST="${{ secrets.FTP_HOST }}"
+          FTP_USER="${{ secrets.FTP_USERNAME }}"
+          FTP_PASS="${{ secrets.FTP_PASSWORD }}"
+          
+          upload_file() {
+            local_file="$1"
+            remote_file="$2"
+            curl -T "$local_file" --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/$remote_file"
+          }
+          
+          upload_dir() {
+            dir="$1"
+            find "$dir" -type f | while read -r file; do
+              relative_path="${file#$dir/}"
+              echo "Uploading: $relative_path"
+              curl -T "$file" --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/$relative_path"
+            done
+          }
+          
+          upload_dir "./build"
