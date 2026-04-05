@@ -30,10 +30,8 @@ jobs:
 
       - name: Deploy via FTP with cleanup
         run: |
-          lftp -c "
-          open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_HOST }}
-          cd public_html
+          lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" -e "
           rm -rf _app/*
-          mirror --reverse --delete ./build/ .
+          mirror -R ./build/ .
           bye
           "
