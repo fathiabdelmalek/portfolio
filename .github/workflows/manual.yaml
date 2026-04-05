@@ -25,25 +25,14 @@ jobs:
       - name: Build the Svelte app
         run: npm run build
 
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
       - name: Deploy via FTP
         run: |
-          FTP_HOST="${{ secrets.FTP_HOST }}"
-          FTP_USER="${{ secrets.FTP_USERNAME }}"
-          FTP_PASS="${{ secrets.FTP_PASSWORD }}"
-          
-          upload_file() {
-            local_file="$1"
-            remote_file="$2"
-            curl -T "$local_file" --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/$remote_file"
-          }
-          
-          upload_dir() {
-            dir="$1"
-            find "$dir" -type f | while read -r file; do
-              relative_path="${file#$dir/}"
-              echo "Uploading: $relative_path"
-              curl -T "$file" --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/public_html/$relative_path"
-            done
-          }
-          
-          upload_dir "./build"
+          lftp -c "
+          open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_HOST }}
+          cd public_html
+          mirror -R --verbose ./build/ .
+          bye
+          "
