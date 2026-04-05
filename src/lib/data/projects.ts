@@ -12,7 +12,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    "id": "993f2496-9560-43ac-92dc-01cb9c6e96ba",
+    "id": "5d4a8b2c-9d00-4ce2-b950-321d8714092e",
     "title": "Luga Edu",
     "description": "Online English learning platform with courses, workshops, and language sessions built using Django and PostgreSQL",
     "tags": [
@@ -23,10 +23,10 @@ export const projects: Project[] = [
     "image": "https://api.microlink.io/?url=https://luga-edu.com&screenshot=true&meta=false&embed=screenshot.url",
     "link": "https://luga-edu.com",
     "featured": true,
-    "date": "Mar 2026"
+    "date": "Apr 2026"
   },
   {
-    "id": "9f243ff5-fc41-4fec-a385-17a7147ec38b",
+    "id": "612435cb-f403-4009-abdd-3294e9705348",
     "title": "Flower Essence",
     "description": "A single page e-commerce web site for a collection of skin care products with link to e-mail of the client.",
     "tags": [
@@ -38,10 +38,10 @@ export const projects: Project[] = [
     "image": "https://api.microlink.io/?url=https://flowers-essence-collection.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     "link": "https://flowers-essence-collection.vercel.app/",
     "featured": true,
-    "date": "Mar 2026"
+    "date": "Apr 2026"
   },
   {
-    "id": "147987ad-7c9b-43d1-96a4-7e606bce62a4",
+    "id": "9f4a1fe7-952e-4525-aad1-ac284ff8205a",
     "title": "passphera-cli",
     "description": "Strong password generator and manager CLI tool for Windows and Linux (DEB, RPM)",
     "tags": [
@@ -50,9 +50,9 @@ export const projects: Project[] = [
       "FastAPI",
       "API Development"
     ],
-    "image": "./images/projects/ecommerce.jpg",
-    "link": "https://passphera.imfathi.com",
+    "image": "https://api.microlink.io/?url=https://passphera-site.onrender.com/&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://passphera-site.onrender.com",
     "featured": true,
-    "date": "Mar 2026"
+    "date": "Apr 2026"
   }
 ];

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
-  import Icon from "./Icon.svelte";
 
   interface SkillCategory {
     name: string;
@@ -27,9 +26,7 @@
   <!-- Header -->
   <div class="flex items-start justify-between mb-4">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-[var(--bg-surface-muted)] flex items-center justify-center">
-        <Icon name={category.icon} class="w-5 h-5 text-[var(--brand-primary)]" />
-      </div>
+      <div class="text-3xl">{category.icon}</div>
       <h3 class="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors duration-200">
         {category.name}
       </h3>

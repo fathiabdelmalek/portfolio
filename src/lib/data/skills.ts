@@ -8,9 +8,9 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    "id": "a178dece-f65d-496a-8833-d84a536071b6",
+    "id": "b5b4d82f-1ca4-40b0-adb6-08c7378bc15c",
     "name": "Programming Languages",
-    "icon": "code",
+    "icon": "💻",
     "skills": [
       "Python",
       "JavaScript / TypeScript",
@@ -20,9 +20,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "cb88d281-4999-4251-baf8-db7fd57b4c71",
+    "id": "a0004998-6916-4a39-80e3-47527338f7ad",
     "name": "Frontend Technologies",
-    "icon": "layout",
+    "icon": "🎨",
     "skills": [
       "Tailwind CSS",
       "Svelte / SvelteKit",
@@ -31,9 +31,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "9a471778-d4f5-426d-9e39-6f306260ff9c",
+    "id": "20a9d515-a830-4458-97cb-6dd0aaa925c9",
     "name": "Backend Technologies",
-    "icon": "server",
+    "icon": "⚙️",
     "skills": [
       "Django",
       "FastAPI",
@@ -43,9 +43,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "265e5f6f-f49a-4023-bc0b-7ac98f1a05d8",
+    "id": "6624a6f6-073d-421b-aaff-d394e67d6601",
     "name": "Application Frameworks",
-    "icon": "smartphone",
+    "icon": "📱",
     "skills": [
       "JavaFX",
       "Flutter",
@@ -54,9 +54,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "c251f8bc-e9b9-4474-be5e-0cb2a8ed0b09",
+    "id": "cde38a4f-7ffc-440f-9cac-cb9b821268ed",
     "name": "Database Systems",
-    "icon": "database",
+    "icon": "🗃️",
     "skills": [
       "SQL",
       "MongoDB",
@@ -64,9 +64,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "c9cdab44-0056-4985-9176-50168130a039",
+    "id": "d0517814-0872-410c-b449-936591fc9fc2",
     "name": "DevOps & Cloud",
-    "icon": "cloud",
+    "icon": "☁️",
     "skills": [
       "Git",
       "Docker",
@@ -74,9 +74,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "f068eea6-d9eb-40cc-aa1d-ae42b459ba39",
+    "id": "008fb1ab-aa44-46f4-a025-1384169263df",
     "name": "AI & Data Science",
-    "icon": "cpu",
+    "icon": "🤖",
     "skills": [
       "PyTorch",
       "scikit-learn",
@@ -85,9 +85,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "64d9f990-6e7f-4eee-8344-8ed586550fd8",
+    "id": "2383570a-9bd9-4094-adce-db4d9c024658",
     "name": "Tools & Productivity",
-    "icon": "tool",
+    "icon": "🔧",
     "skills": [
       "Postman",
       "Figma",
@@ -98,9 +98,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "a7b20e5a-ed59-45ae-b934-95564710e5cb",
+    "id": "df61ee61-96ea-4407-9e86-803251d8cba7",
     "name": "Operating Systems",
-    "icon": "monitor",
+    "icon": "🖥️",
     "skills": [
       "Fedora / Linux",
       "Windows",
@@ -108,9 +108,9 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    "id": "9f269d16-3d41-4fbc-9f95-cd2867569916",
+    "id": "aedf4d89-9b8a-44da-971a-5029c65665ee",
     "name": "Development Environments",
-    "icon": "code-2",
+    "icon": "⌨️",
     "skills": [
       "PyCharm",
       "VS Code",

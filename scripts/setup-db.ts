@@ -65,16 +65,16 @@ async function setupDatabase() {
             }
 
             const skillData = [
-                { name: 'Programming Languages', icon: 'code', skills: ['Python', 'JavaScript / TypeScript', 'C / C++', 'Java / Kotlin / Dart', 'Bash'], display_order: 1 },
-                { name: 'Frontend Technologies', icon: 'layout', skills: ['Tailwind CSS', 'Svelte / SvelteKit', 'React', 'Next.js'], display_order: 2 },
-                { name: 'Backend Technologies', icon: 'server', skills: ['Django', 'FastAPI', 'Flask', 'Node.js', 'Spring Boot'], display_order: 3 },
-                { name: 'Application Frameworks', icon: 'smartphone', skills: ['JavaFX', 'Flutter', 'Spring', 'Arduino'], display_order: 4 },
-                { name: 'Database Systems', icon: 'database', skills: ['SQL', 'MongoDB', 'Redis'], display_order: 5 },
-                { name: 'DevOps & Cloud', icon: 'cloud', skills: ['Git', 'Docker', 'AWS'], display_order: 6 },
-                { name: 'AI & Data Science', icon: 'cpu', skills: ['PyTorch', 'scikit-learn', 'Keras / TensorFlow', 'Pandas'], display_order: 7 },
-                { name: 'Tools & Productivity', icon: 'tool', skills: ['Postman', 'Figma', 'LaTeX', 'Notion', 'Trello', 'n8n'], display_order: 8 },
-                { name: 'Operating Systems', icon: 'monitor', skills: ['Fedora / Linux', 'Windows', 'Android'], display_order: 9 },
-                { name: 'Development Environments', icon: 'code-2', skills: ['PyCharm', 'VS Code', 'Cursor', 'Android Studio'], display_order: 10 }
+                { name: 'Programming Languages', icon: '💻', skills: ['Python', 'JavaScript / TypeScript', 'C / C++', 'Java / Kotlin / Dart', 'Bash'], display_order: 1 },
+                { name: 'Frontend Technologies', icon: '🎨', skills: ['Tailwind CSS', 'Svelte / SvelteKit', 'React', 'Next.js'], display_order: 2 },
+                { name: 'Backend Technologies', icon: '⚙️', skills: ['Django', 'FastAPI', 'Flask', 'Node.js', 'Spring Boot'], display_order: 3 },
+                { name: 'Application Frameworks', icon: '📱', skills: ['JavaFX', 'Flutter', 'Spring', 'Arduino'], display_order: 4 },
+                { name: 'Database Systems', icon: '🗃️', skills: ['SQL', 'MongoDB', 'Redis'], display_order: 5 },
+                { name: 'DevOps & Cloud', icon: '☁️', skills: ['Git', 'Docker', 'AWS'], display_order: 6 },
+                { name: 'AI & Data Science', icon: '🤖', skills: ['PyTorch', 'scikit-learn', 'Keras / TensorFlow', 'Pandas'], display_order: 7 },
+                { name: 'Tools & Productivity', icon: '🔧', skills: ['Postman', 'Figma', 'LaTeX', 'Notion', 'Trello', 'n8n'], display_order: 8 },
+                { name: 'Operating Systems', icon: '🖥️', skills: ['Fedora / Linux', 'Windows', 'Android'], display_order: 9 },
+                { name: 'Development Environments', icon: '⌨️', skills: ['PyCharm', 'VS Code', 'Cursor', 'Android Studio'], display_order: 10 }
             ];
 
             for (const category of skillData) {
