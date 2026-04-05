@@ -31,6 +31,7 @@ jobs:
       - name: Deploy via FTP
         run: |
           lftp -c "
+          set ftp:ssl-allow no
           open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_HOST }}
           cd public_html
           mirror -R --verbose ./build/ .
