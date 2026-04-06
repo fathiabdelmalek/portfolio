@@ -8,21 +8,21 @@
 
   onMount(() => {
     // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
       isDarkMode = false;
-      document.documentElement.classList.add('light-mode');
+      document.documentElement.classList.add("light-mode");
     }
   });
 
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
     if (isDarkMode) {
-      document.documentElement.classList.remove('light-mode');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.remove("light-mode");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.add('light-mode');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.add("light-mode");
+      localStorage.setItem("theme", "light");
     }
   };
 
@@ -32,34 +32,38 @@
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     isMenuOpen = false;
   };
 
   const navLinks = [
-    { label: 'Projects', id: 'projects' },
-    { label: 'Publications', id: 'publications' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'About', id: 'about' },
-    { label: 'Contact', id: 'contact' },
+    { label: "Projects", id: "projects" },
+    { label: "Publications", id: "publications" },
+    { label: "Skills", id: "skills" },
+    { label: "About", id: "about" },
+    { label: "Contact", id: "contact" },
   ];
 </script>
 
 <!-- Header -->
-<header class="sticky top-0 z-50 w-full bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-primary)]/50">
+<header
+  class="sticky top-0 z-50 w-full bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-primary)]/50"
+>
   <nav class="max-w-6xl mx-auto px-5 py-4">
     <div class="flex items-center justify-center md:justify-between">
       <!-- Logo (hidden on mobile when menu closed, always visible on desktop) -->
-      <a 
-        href="/" 
+      <a
+        href="/"
         class="hidden md:block text-xl font-semibold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors duration-200 tracking-tight"
       >
         Fathi<span class="text-[var(--brand-primary)]">.</span>
       </a>
 
       <!-- Desktop Navigation (centered) -->
-      <div class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+      <div
+        class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2"
+      >
         {#each navLinks as link}
           <a
             href="#{link.id}"
@@ -79,23 +83,43 @@
           aria-label="Toggle theme"
         >
           {#if isDarkMode}
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
             </svg>
           {:else}
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
             </svg>
           {/if}
         </button>
       </div>
 
       <!-- Mobile: Logo centered -->
-      <a 
-        href="/" 
+      <a
+        href="/"
         class="md:hidden text-xl font-semibold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors duration-200 tracking-tight"
       >
-        fathi<span class="text-[var(--brand-primary)]">.</span>
+        Fathi<span class="text-[var(--brand-primary)]">.</span>
       </a>
 
       <!-- Mobile Menu Button (absolute positioned) -->
@@ -105,11 +129,26 @@
         aria-label="Toggle menu"
         aria-expanded={isMenuOpen}
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           {#if isMenuOpen}
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           {:else}
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           {/if}
         </svg>
       </button>
@@ -117,10 +156,7 @@
 
     <!-- Mobile Navigation -->
     {#if isMenuOpen}
-      <div 
-        class="md:hidden mt-4 pb-2"
-        transition:slide={{ duration: 200 }}
-      >
+      <div class="md:hidden mt-4 pb-2" transition:slide={{ duration: 200 }}>
         <div class="flex flex-col gap-1">
           {#each navLinks as link}
             <a
@@ -140,13 +176,33 @@
               aria-label="Toggle theme"
             >
               {#if isDarkMode}
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
                 </svg>
                 <span>Light Mode</span>
               {:else}
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
                 </svg>
                 <span>Dark Mode</span>
               {/if}

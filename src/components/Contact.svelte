@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import { toasts } from "../lib/stores/toasts";
+  import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from "$lib/email";
+  import emailjs from "@emailjs/browser";
 
   let name = "";
   let email = "";
@@ -27,35 +29,34 @@
     },
   ];
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     isSubmitting = true;
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send email');
+      if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        toasts.add("Email service not configured. Please email directly.", 'error', 5000);
+        isSubmitting = false;
+        return;
       }
 
-      // Success
-      toasts.add('Message sent successfully! I\'ll get back to you soon.', 'success', 5000);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toasts.add('Message sent successfully!', 'success', 5000);
       name = "";
       email = "";
       message = "";
-    } catch (error) {
-      toasts.add("There was an error sending your message. Please try again.", 'error', 5000);
-      console.error('Submit error:', error);
+    } catch {
+      toasts.add("Failed to send message. Please try again.", 'error', 5000);
     } finally {
       isSubmitting = false;
     }
