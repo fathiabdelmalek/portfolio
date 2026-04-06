@@ -32,20 +32,25 @@
 <footer class="bg-bg-primary border-t border-border-primary/50">
   <div class="max-w-6xl mx-auto px-5 py-16">
     <!-- Main Footer Content -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-8 gap-16 mb-12">
       <!-- Brand Section -->
-      <div class="md:col-span-1">
+      <div class="md:col-span-3">
         <h3 class="text-2xl font-bold text-text-primary mb-2">
           Fathi<span class="text-brand-primary">.</span>
         </h3>
         <p class="text-sm text-text-secondary leading-relaxed">
-          AI researcher, software engineer, and problem solver passionate about building intelligent solutions.
+          AI researcher, software engineer, and problem solver passionate about
+          building intelligent solutions.
         </p>
       </div>
 
       <!-- Navigation Links -->
-      <div>
-        <h4 class="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide">Navigation</h4>
+      <div class="md:col-span-3">
+        <h4
+          class="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide"
+        >
+          Navigation
+        </h4>
         <div class="flex flex-wrap gap-4">
           {#each footerLinks as link}
             <a
@@ -59,8 +64,12 @@
       </div>
 
       <!-- Social Links -->
-      <div>
-        <h4 class="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide">Connect</h4>
+      <div class="md:col-span-2">
+        <h4
+          class="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide"
+        >
+          Connect
+        </h4>
         <div class="flex gap-4">
           {#each socialLinks as link}
             <a

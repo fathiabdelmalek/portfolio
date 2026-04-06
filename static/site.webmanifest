@@ -1,0 +1,21 @@
+{
+  "name": "Fathi Abdelmalek - Portfolio",
+  "short_name": "Fathi Portfolio",
+  "description": "PhD Student in AI · Software Engineer · Building intelligent solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1f3c",
+  "theme_color": "#1a1f3c",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

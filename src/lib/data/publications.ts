@@ -1,6 +1,5 @@
 // Auto-generated from database - Do not edit manually
 export interface Publication {
-  id: string;
   title: string;
   authors: string;
   journal: string;

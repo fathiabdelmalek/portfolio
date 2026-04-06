@@ -46,28 +46,6 @@
   ];
 </script>
 
-<!-- Development Banner -->
-{#if showBanner}
-  <div
-    transition:slide={{ duration: 200 }}
-    class="w-full bg-[var(--brand-primary)]/10 backdrop-blur-sm border-b border-[var(--border-primary)] text-[var(--text-secondary)] text-center text-xs py-2 font-medium tracking-wide relative flex items-center justify-center"
-  >
-    <span class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 bg-[var(--warning)] rounded-full animate-pulse"></span>
-      Under development — some features may be incomplete
-    </span>
-    <button
-      class="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-200 p-1 rounded-md hover:bg-[var(--bg-surface)]"
-      aria-label="Close banner"
-      on:click={() => (showBanner = false)}
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-{/if}
-
 <!-- Header -->
 <header class="sticky top-0 z-50 w-full bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-primary)]/50">
   <nav class="max-w-6xl mx-auto px-5 py-4">
