@@ -108,7 +108,7 @@
     <!-- Contact Form -->
     <div class="max-w-2xl mx-auto">
       <div class="bg-bg-surface border border-border-primary rounded-2xl p-8 md:p-12 shadow-lg">
-        <form on:submit={handleSubmit} class="space-y-6">
+        <form onsubmit={handleSubmit} class="space-y-6">
           <!-- Name Field -->
           <div>
             <label for="name" class="block text-sm font-semibold text-text-primary mb-3">

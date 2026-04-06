@@ -63,7 +63,7 @@
         {#each navLinks as link}
           <a
             href="#{link.id}"
-            on:click={(e) => scrollToSection(e, link.id)}
+            onclick={(e) => scrollToSection(e, link.id)}
             class="px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
           >
             {link.label}
@@ -74,7 +74,7 @@
       <!-- Theme Toggle & Spacer -->
       <div class="hidden md:flex items-center gap-2">
         <button
-          on:click={toggleTheme}
+          onclick={toggleTheme}
           class="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
           aria-label="Toggle theme"
         >
@@ -101,7 +101,7 @@
       <!-- Mobile Menu Button (absolute positioned) -->
       <button
         class="md:hidden absolute right-5 p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
-        on:click={toggleMenu}
+        onclick={toggleMenu}
         aria-label="Toggle menu"
         aria-expanded={isMenuOpen}
       >
@@ -125,7 +125,7 @@
           {#each navLinks as link}
             <a
               href="#{link.id}"
-              on:click={(e) => scrollToSection(e, link.id)}
+              onclick={(e) => scrollToSection(e, link.id)}
               class="px-4 py-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
             >
               {link.label}
@@ -135,7 +135,7 @@
           <!-- Theme Toggle in Mobile Menu -->
           <div class="pt-2 mt-2 border-t border-[var(--border-primary)]">
             <button
-              on:click={toggleTheme}
+              onclick={toggleTheme}
               class="w-full px-4 py-3 flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)] rounded-lg transition-all duration-200"
               aria-label="Toggle theme"
             >

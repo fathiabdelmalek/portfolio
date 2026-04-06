@@ -3,10 +3,9 @@
   import { slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
 
-  export let publication: Publication;
-  export let index: number = 0;
+  let { publication, index = 0 }: { publication: Publication; index?: number } = $props();
 
-  let isExpanded = false;
+  let isExpanded = $state(false);
 
   function toggleExpand() {
     isExpanded = !isExpanded;
@@ -61,7 +60,7 @@
         <div class="mb-3">
           <button 
             class="text-sm text-[var(--brand-primary)] hover:text-[var(--brand-primary-hover)] transition-colors duration-200 flex items-center gap-1"
-            on:click={toggleExpand}
+            onclick={toggleExpand}
           >
             <span>{isExpanded ? 'Hide' : 'Show'} Abstract</span>
             <svg 

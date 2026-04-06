@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Project } from "$lib/data/projects";
 
-  export let project: Project;
+  let { project }: { project: Project } = $props();
 </script>
 
 <article
@@ -17,6 +17,8 @@
           encodeURIComponent(project.title)}
       alt={project.title}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+      decoding="async"
     />
     <!-- Overlay with link -->
     <div

@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
   import SkillCard from "./Skill.svelte";
+  import type { SkillCategory } from "$lib/data/skills";
 
-  export let skillCategories = [];
+  let { skillCategories = [] }: { skillCategories: SkillCategory[] } = $props();
 </script>
 
 <section id="skills" class="py-20 px-5">
@@ -19,8 +20,8 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {#each skillCategories as category, i}
-        <SkillCard {category} index={i} />
+      {#each skillCategories as category}
+        <SkillCard {category} />
       {/each}
     </div>
   </div>

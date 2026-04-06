@@ -2,10 +2,11 @@
   import Project from "./Project.svelte";
   import { slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  import type { Project as ProjectType } from "$lib/data/projects";
 
-  export let projects: any[] = [];
+  let { projects = [] }: { projects: ProjectType[] } = $props();
 
-  let visibleProjects = 3;
+  let visibleProjects = $state(3);
   const defaultVisibleCount = 3;
 
   function loadMore() {
@@ -53,7 +54,7 @@
     {#if visibleProjects < projects.length}
       <button
         class="px-6 py-3 text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
-        on:click={loadMore}
+        onclick={loadMore}
       >
         Load More Projects
       </button>
@@ -61,7 +62,7 @@
     {#if visibleProjects > defaultVisibleCount}
       <button
         class="px-6 py-3 text-sm font-medium text-[var(--text-primary)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-lg transition-all duration-200"
-        on:click={showLess}
+        onclick={showLess}
       >
         Show Less
       </button>

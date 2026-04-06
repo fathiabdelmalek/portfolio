@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
   import type { Publication } from "$lib/data/publications";
 
-  export let publications: Publication[] = [];
+  let { publications = [] }: { publications: Publication[] } = $props();
 </script>
 
 <section id="publications" class="section-container">

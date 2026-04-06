@@ -17,11 +17,11 @@
   }
 </script>
 
-<svelte:window on:scroll={handleScroll} />
+<svelte:window onscroll={handleScroll} />
 
 {#if isVisible}
   <button
-    on:click={scrollToTop}
+    onclick={scrollToTop}
     class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full bg-brand-primary hover:bg-brand-primary-hover text-white shadow-lg transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95"
     aria-label="Back to top"
     title="Back to top"

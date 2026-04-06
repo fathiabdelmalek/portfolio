@@ -35,14 +35,14 @@
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
 				<a 
 					href="#projects" 
-					on:click={(e) => scrollToSection(e, 'projects')}
+					onclick={(e) => scrollToSection(e, 'projects')}
 					class="px-8 py-3 text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
 				>
 					View My Work
 				</a>
 				<a 
 					href="#contact" 
-					on:click={(e) => scrollToSection(e, 'contact')}
+					onclick={(e) => scrollToSection(e, 'contact')}
 					class="px-8 py-3 text-sm font-medium text-[var(--text-primary)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-lg transition-all duration-200"
 				>
 					Get In Touch
@@ -53,7 +53,7 @@
 			<div class="pt-12 animate-bounce">
 				<a 
 					href="#about" 
-					on:click={(e) => scrollToSection(e, 'about')}
+					onclick={(e) => scrollToSection(e, 'about')}
 					class="inline-block text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors duration-200"
 					aria-label="Scroll to about section"
 				>
