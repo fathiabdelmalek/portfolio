@@ -50,5 +50,20 @@ export const projects: Project[] = [
     "link": "https://github.com/passphera/cli/releases",
     "featured": true,
     "date": "Apr 2024 - Nov 2024"
-  }
+  },
+  {
+    "title": "Ella Beauty Center",
+    "description": "A responsive beauty salon website with service booking, email and whatsapp notifications",
+    "tags": [
+      "TailwindCSS",
+      "Javascript",
+      "Next.js",
+      "Resend",
+      "API Development"
+    ],
+    "image": "https://api.microlink.io/?url=https://ella-beauty-center.netlify.app&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://ella-beauty-center.netlify.app/",
+    "featured": true,
+    "date": "Jun 2026"
+  },
 ];
