@@ -66,4 +66,18 @@ export const projects: Project[] = [
     "featured": true,
     "date": "Jun 2026"
   },
+  {
+    "title": "TAKALEM",
+    "description": "AI-powered wearable system that translates sign language gestures into real-time speech",
+    "tags": [
+      "Python / Esp EDF / PlatformIO",
+      "Deep Learning / TensorFlow",
+      "Robotics / Microcontrollers / ESP32",
+      "Innovation / BMC"
+    ],
+    "image": "https://api.microlink.io/?url=https://github.com/fathiabdelmalek/master-thesis&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://github.com/fathiabdelmalek/master-thesis",
+    "featured": true,
+    "date": "Jan 2023 - May 2023"
+  },
 ];
