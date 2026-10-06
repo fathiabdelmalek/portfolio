@@ -1,6 +1,6 @@
 <script lang="ts">
   import PublicationCard from "./Publication.svelte";
-  import { fade } from "svelte/transition";
+  import { reveal } from "$lib/reveal";
   import type { Publication } from "$lib/data/publications";
 
   let { publications = [] }: { publications: Publication[] } = $props();
@@ -24,19 +24,18 @@
 
   <!-- Publications List or Coming Soon -->
   {#if publications.length > 0}
-    <div
-      class="space-y-6 max-w-4xl mx-auto"
-      transition:fade={{ duration: 300 }}
-    >
-      {#each publications as publication, i}
-        <PublicationCard {publication} index={i} />
+    <div class="space-y-6 max-w-4xl mx-auto">
+      {#each publications as publication}
+        <div use:reveal>
+          <PublicationCard {publication} />
+        </div>
       {/each}
     </div>
   {:else}
     <!-- Coming Soon State -->
     <div
       class="max-w-2xl mx-auto text-center py-16 px-8 bg-[var(--bg-surface)] border border-[var(--border-primary)] rounded-2xl"
-      transition:fade={{ duration: 400 }}
+      use:reveal
     >
       <!-- Icon -->
       <div

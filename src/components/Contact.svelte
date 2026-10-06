@@ -1,6 +1,7 @@
 <script lang="ts">
   import { toasts } from "../lib/stores/toasts";
   import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from "$lib/email";
+  import { reveal } from "$lib/reveal";
   import emailjs from "@emailjs/browser";
 
   let name = "";
@@ -80,22 +81,24 @@
 
     <!-- Contact Methods Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-      {#each contactMethods as method}
-        <a
-          href={method.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative bg-bg-surface hover:bg-bg-surface-elevated border border-border-primary rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-        >
-          <div class="text-4xl mb-4">{method.icon}</div>
-          <h3 class="text-lg font-semibold text-text-primary mb-2 group-hover:text-brand-primary transition-colors duration-200">
-            {method.label}
-          </h3>
-          <p class="text-sm text-text-tertiary group-hover:text-text-secondary transition-colors duration-200">
-            {method.value}
-          </p>
-          <div class="absolute inset-0 rounded-xl border-2 border-brand-primary/0 group-hover:border-brand-primary/20 transition-all duration-300 pointer-events-none"></div>
-        </a>
+      {#each contactMethods as method, i}
+        <div class="h-full" use:reveal={(i % 3) * 80}>
+          <a
+            href={method.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block h-full group relative bg-bg-surface hover:bg-bg-surface-elevated border border-border-primary rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div class="text-4xl mb-4">{method.icon}</div>
+            <h3 class="text-lg font-semibold text-text-primary mb-2 group-hover:text-brand-primary transition-colors duration-200">
+              {method.label}
+            </h3>
+            <p class="text-sm text-text-tertiary group-hover:text-text-secondary transition-colors duration-200">
+              {method.value}
+            </p>
+            <div class="absolute inset-0 rounded-xl border-2 border-brand-primary/0 group-hover:border-brand-primary/20 transition-all duration-300 pointer-events-none"></div>
+          </a>
+        </div>
       {/each}
     </div>
 
@@ -107,7 +110,7 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-2xl mx-auto" use:reveal>
       <div class="bg-bg-surface border border-border-primary rounded-2xl p-8 md:p-12 shadow-lg">
         <form onsubmit={handleSubmit} class="space-y-6">
           <!-- Name Field -->

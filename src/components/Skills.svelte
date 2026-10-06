@@ -1,5 +1,6 @@
 <script lang="ts">
   import SkillCard from "./Skill.svelte";
+  import { reveal } from "$lib/reveal";
   import type { SkillCategory } from "$lib/data/skills";
 
   let { skillCategories = [] }: { skillCategories: SkillCategory[] } = $props();
@@ -20,8 +21,10 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {#each skillCategories as category}
-        <SkillCard {category} />
+      {#each skillCategories as category, i}
+        <div class="h-full" use:reveal={(i % 3) * 80}>
+          <SkillCard {category} />
+        </div>
       {/each}
     </div>
   </div>

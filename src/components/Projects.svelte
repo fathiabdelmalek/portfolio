@@ -2,13 +2,13 @@
   import Project from "./Project.svelte";
   import { slide } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  import { reveal } from "$lib/reveal";
   import type { Project as ProjectType } from "$lib/data/projects";
 
   let { projects = [] }: { projects: ProjectType[] } = $props();
 
   let visibleProjects = $state(3);
   const defaultVisibleCount = 3;
-
   function loadMore() {
     visibleProjects = Math.min(visibleProjects + 3, projects.length);
   }
@@ -37,6 +37,8 @@
     {#each projects as project, i}
       {#if i < visibleProjects}
         <div
+          class="h-full"
+          use:reveal={(i % 3) * 80}
           transition:slide={{
             duration: 600,
             easing: quintOut,

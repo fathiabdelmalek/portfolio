@@ -1,5 +1,6 @@
 <script>
   import faceImage from "$lib/assets/face.png";
+  import { reveal } from "$lib/reveal";
 
   const highlights = [
     { icon: "🎓", title: "PhD Student", description: "Artificial Intelligence & Deep Learning" },
@@ -88,18 +89,23 @@
     <!-- Highlights Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
       {#each highlights as item, i}
-        <div
-          class="group relative bg-bg-surface hover:bg-bg-surface-elevated border border-border-primary rounded-xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-        >
-          <div class="text-4xl mb-3">{item.icon}</div>
-          <h4 class="font-semibold text-text-primary mb-1 text-sm">{item.title}</h4>
-          <p class="text-xs text-text-tertiary">{item.description}</p>
+        <div use:reveal={(i % 4) * 60}>
+          <div
+            class="h-full group relative bg-bg-surface hover:bg-bg-surface-elevated border border-border-primary rounded-xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div class="text-4xl mb-3">{item.icon}</div>
+            <h4 class="font-semibold text-text-primary mb-1 text-sm">{item.title}</h4>
+            <p class="text-xs text-text-tertiary">{item.description}</p>
+          </div>
         </div>
       {/each}
     </div>
 
     <!-- Interests Section -->
-    <div class="bg-gradient-to-r from-bg-surface-muted/30 to-bg-surface-muted/50 border border-border-primary/50 rounded-2xl p-8 md:p-12">
+    <div
+      class="bg-gradient-to-r from-bg-surface-muted/30 to-bg-surface-muted/50 border border-border-primary/50 rounded-2xl p-8 md:p-12"
+      use:reveal
+    >
       <h3 class="text-2xl font-semibold text-text-primary mb-8">Areas of Interest</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
         {#each interests as interest}

@@ -5,7 +5,7 @@
 </script>
 
 <article
-  class="group relative bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+  class="h-full group relative bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
 >
   <!-- Project Image -->
   <div

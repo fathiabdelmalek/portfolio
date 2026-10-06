@@ -23,6 +23,8 @@
     { label: "Home", href: "#" },
     { label: "Projects", href: "#projects" },
     { label: "Publications", href: "#publications" },
+    { label: "Education", href: "#education" },
+    { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },

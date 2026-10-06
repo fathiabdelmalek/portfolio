@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="group relative bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+  class="h-full group relative bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] border border-[var(--border-primary)] rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
   onclick={toggleExpand}
   onkeydown={(e) => e.key === 'Enter' && toggleExpand()}
   role="button"

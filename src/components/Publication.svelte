@@ -1,9 +1,7 @@
 <script lang="ts">
   import type { Publication } from "$lib/data/publications";
-  import { slide } from "svelte/transition";
-  import { quintOut } from "svelte/easing";
 
-  let { publication, index = 0 }: { publication: Publication; index?: number } = $props();
+  let { publication }: { publication: Publication } = $props();
 
   let isExpanded = $state(false);
 
@@ -24,13 +22,8 @@
   };
 </script>
 
-<article 
+<article
   class="bg-[var(--bg-surface)] border border-[var(--border-primary)] rounded-xl p-6 hover:bg-[var(--bg-surface-elevated)] hover:shadow-lg transition-all duration-300"
-  transition:slide={{
-    duration: 500,
-    easing: quintOut,
-    delay: index * 100
-  }}
 >
   <div class="flex flex-col sm:flex-row sm:items-start gap-4">
     <!-- Status Badge -->
