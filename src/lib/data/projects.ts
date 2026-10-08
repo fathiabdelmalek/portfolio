@@ -11,6 +11,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    "title": "Natra International",
+    "description": "The official website of Natra International, a leading company in the steel production in Algeria, showcasing their products, services, and corporate information.",
+    "tags": [
+      "PHP / Laravel",
+      "MySQL",
+      "Fillament / TailwindCSS"
+    ],
+    "image": "https://api.microlink.io/?url=https://natra-int.com&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://natra-int.com",
+    "featured": true,
+    "date": "Sep 2026 - Oct 2026"
+  },
+  {
     "title": "Luga Edu",
     "description": "Online English learning platform with courses, workshops, and language sessions built using Django and PostgreSQL",
     "tags": [
