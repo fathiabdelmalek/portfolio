@@ -20,22 +20,33 @@ export const projects: Project[] = [
     ],
     "image": "https://api.microlink.io/?url=https://natra-int.com&screenshot=true&meta=false&embed=screenshot.url",
     "link": "https://natra-int.com",
-    "featured": true,
     "date": "Sep 2026 - Oct 2026"
   },
   {
-    "title": "Luga Edu",
-    "description": "Online English learning platform with courses, workshops, and language sessions built using Django and PostgreSQL",
+    "title": "Ella Beauty Center",
+    "description": "A responsive beauty salon website with service booking, email and whatsapp notifications",
     "tags": [
-      "Python / Django",
-      "PostgreSQL",
-      "API Development",
-      "Streaming / Agora API"
+      "TailwindCSS",
+      "Javascript",
+      "Next.js",
+      "Resend",
+      "API Development"
     ],
-    "image": "https://api.microlink.io/?url=https://luga-edu.com&screenshot=true&meta=false&embed=screenshot.url",
-    "link": "https://luga-edu.com",
-    "featured": true,
-    "date": "Jul 2025 - Oct 2025"
+    "image": "https://api.microlink.io/?url=https://ella-beauty-center.netlify.app&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://ella-beauty-center.netlify.app/",
+    "date": "Jun 2026"
+  },
+  {
+    "title": "Koussai Visuals",
+    "description": "A portfolio website for a professional photographer and videographer, showcasing his work and services",
+    "tags": [
+      "React / Next.js",
+      "PostgreSQL / Supabase",
+      "API Development"
+    ],
+    "image": "https://api.microlink.io/?url=https://koussai-visuals.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://koussai-visuals.com",
+    "date": "May 2025"
   },
   {
     "title": "Flower Essence",
@@ -48,7 +59,6 @@ export const projects: Project[] = [
     ],
     "image": "https://api.microlink.io/?url=https://flowers-essence-collection.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     "link": "https://flowers-essence-collection.vercel.app/",
-    "featured": true,
     "date": "Jun 2025"
   },
   {
@@ -65,21 +75,6 @@ export const projects: Project[] = [
     "date": "Apr 2024 - Nov 2024"
   },
   {
-    "title": "Ella Beauty Center",
-    "description": "A responsive beauty salon website with service booking, email and whatsapp notifications",
-    "tags": [
-      "TailwindCSS",
-      "Javascript",
-      "Next.js",
-      "Resend",
-      "API Development"
-    ],
-    "image": "https://api.microlink.io/?url=https://ella-beauty-center.netlify.app&screenshot=true&meta=false&embed=screenshot.url",
-    "link": "https://ella-beauty-center.netlify.app/",
-    "featured": true,
-    "date": "Jun 2026"
-  },
-  {
     "title": "TAKALEM",
     "description": "AI-powered wearable system that translates sign language gestures into real-time speech",
     "tags": [
@@ -90,7 +85,19 @@ export const projects: Project[] = [
     ],
     "image": "https://api.microlink.io/?url=https://github.com/fathiabdelmalek/master-thesis&screenshot=true&meta=false&embed=screenshot.url",
     "link": "https://github.com/fathiabdelmalek/master-thesis",
-    "featured": true,
     "date": "Jan 2023 - May 2023"
+  },
+  {
+    "title": "Luga Edu",
+    "description": "Online English learning platform with courses, workshops, and language sessions built using Django and PostgreSQL",
+    "tags": [
+      "Python / Django",
+      "PostgreSQL",
+      "API Development",
+      "Streaming / Agora API"
+    ],
+    "image": "https://api.microlink.io/?url=https://luga-edu.com&screenshot=true&meta=false&embed=screenshot.url",
+    "link": "https://luga-edu.com",
+    "date": "Jul 2025 - Oct 2025"
   },
 ];
